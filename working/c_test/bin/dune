@@ -1,0 +1,10 @@
+(executable
+ (public_name c_test)
+ (name main)
+ (extra_objects test)
+ (libraries c_test))
+
+(rule
+ (targets test.o)
+ (deps test.asm)
+ (action (run nasm -f elf64 %{deps})))

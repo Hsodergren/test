@@ -1,0 +1,9 @@
+(library
+ (name c_test)
+ (extra_objects test)
+ (foreign_stubs (language c) (names file1)))
+
+(rule
+ (targets test.o)
+ (deps test.asm)
+ (action (run nasm -f elf64 %{deps})))
